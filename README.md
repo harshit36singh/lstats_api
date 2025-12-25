@@ -1,6 +1,6 @@
 # 📊 LStats API - LeetCode Statistics API
 
-A lightweight Flask-based RESTful API that fetches and displays LeetCode user statistics. Perfect for showcasing your coding achievements on portfolios, GitHub profiles, or personal websites.
+A lightweight FastApi-based RESTful API that fetches and displays LeetCode user statistics. Perfect for showcasing your coding achievements on portfolios, GitHub profiles, or personal websites.
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 
@@ -16,8 +16,6 @@ A lightweight Flask-based RESTful API that fetches and displays LeetCode user st
 - 🚀 **Fast & Lightweight** - Built with Flask for optimal performance
 - 📊 **Comprehensive Stats** - Get detailed problem-solving statistics
 - 🎨 **Easy Integration** - RESTful API design for simple consumption
-- 🌐 **CORS Enabled** - Use from any frontend application
-- ☁️ **Heroku Ready** - Deployment configuration included
 - 📱 **No Authentication Required** - Public endpoint for easy access
 
 ---
@@ -27,7 +25,6 @@ A lightweight Flask-based RESTful API that fetches and displays LeetCode user st
 - [API Endpoints](#-api-endpoints)
 - [Response Format](#-response-format)
 - [Installation](#-installation)
-- [Deployment](#-deployment)
 - [Usage Examples](#-usage-examples)
 - [Project Structure](#-project-structure)
 - [Tech Stack](#-tech-stack)
@@ -153,50 +150,6 @@ Open your browser or use curl:
 curl http://localhost:5000/your-leetcode-username
 ```
 
----
-
-## 🌐 Deployment
-
-### Deploy to Heroku
-
-This project is configured for easy Heroku deployment with the included `Procfile` and `runtime.txt`.
-
-1️⃣ **Install Heroku CLI**
-
-Follow the [Heroku CLI installation guide](https://devcenter.heroku.com/articles/heroku-cli).
-
-2️⃣ **Login to Heroku**
-
-```bash
-heroku login
-```
-
-3️⃣ **Create Heroku App**
-
-```bash
-heroku create your-app-name
-```
-
-4️⃣ **Deploy to Heroku**
-
-```bash
-git push heroku main
-```
-
-5️⃣ **Open Your API**
-
-```bash
-heroku open
-```
-
-Your API will be live at: `https://your-app-name.herokuapp.com/{username}`
-
-### Environment Variables
-
-No environment variables are required for basic functionality.
-
----
-
 ## 💻 Usage Examples
 
 ### Python
@@ -278,22 +231,22 @@ lstats_api/
 ├── __pycache__/                # Python bytecode cache
 │   └── ...
 │
-├── apileetcode.py              # Main Flask application
-│   ├── Flask app initialization
+├── apileetcode.py              # Main FastApi application
+│   ├── FastAPi app initialization
 │   ├── CORS configuration
 │   ├── API endpoint definitions
 │   ├── LeetCode GraphQL queries
 │   └── Error handling
 │
 ├── requirements.txt            # Python dependencies
-│   ├── Flask
-│   ├── Flask-CORS
+│   ├── FastApi
+│   ├── FastApi-CORS
 │   ├── requests
 │   ├── gunicorn
 │   └── other dependencies
 │
 ├── Procfile                    # Heroku deployment config
-│   └── web: gunicorn apileetcode:app
+│   └── web: unicorn apileetcode:app
 │
 ├── runtime.txt                 # Python version specification
 │   └── python-3.x.x
@@ -306,48 +259,20 @@ lstats_api/
 ### File Descriptions
 
 #### `apileetcode.py`
-The core Flask application that:
+The core FastApi application that:
 - Initializes Flask server and configures CORS
 - Defines the main API endpoint (`/{username}`)
 - Queries LeetCode's GraphQL API
 - Parses and formats response data
 - Handles errors and edge cases
 
-#### `requirements.txt`
-Lists all Python dependencies:
-```
-Flask==2.3.0
-Flask-CORS==4.0.0
-requests==2.31.0
-gunicorn==21.2.0
-```
-
-#### `Procfile`
-Heroku process configuration:
-```
-web: gunicorn apileetcode:app
-```
-
-#### `runtime.txt`
-Specifies Python version for Heroku:
-```
-python-3.11.0
-```
-
----
-
 ## 🛠️ Tech Stack
 
 ### Backend Framework
-- **Flask** - Lightweight Python web framework
-- **Flask-CORS** - Cross-Origin Resource Sharing support
+- **FastApi** - Lightweight Python web framework
 
 ### HTTP Client
 - **Requests** - HTTP library for GraphQL queries
-
-### Deployment
-- **Gunicorn** - Python WSGI HTTP Server for production
-- **Heroku** - Cloud platform for deployment
 
 ### APIs
 - **LeetCode GraphQL API** - Data source for user statistics
